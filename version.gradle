@@ -1,0 +1,80 @@
+ext {
+    // 项目根目录的build.gradle中，allprojects-》repositories 下添加:
+    //maven { url rootProject.ext.repositories.gxutUi }
+    repositories = [
+            leancloud: "http://mvn.leancloud.cn/nexus/content/repositories/public",//leancloud 仓库
+            gxutUi   : "https://dl.bintray.com/gxut/ui",//个人UI仓库
+            gxutCore : "https://dl.bintray.com/gxut/core",//个人核心工具代码仓库
+            bmob     : "https://raw.github.com/bmob/bmob-android-sdk/master"//bmob仓库
+    ]
+    //在module的build.gradle中通过apply plugin引入
+    plugin = [
+            kotlin   : 'kotlin-android',//module引入kotlin支持 和 kotlinExt一同使用
+            kotlinExt: 'kotlin-android-extensions',//同上
+            app      : 'com.android.application',//android工程
+            lib      : 'com.android.library',//android依赖库
+            maven    : 'com.github.dcendents.android-maven',//添加maven支持
+            bintray  : 'com.jfrog.bintray'//添加bintray支持
+    ]
+    //添加开源库依赖，在module的build.gradle的dependencies中通过implementation rootProject.ext.expand.xxx引用
+    expand = [
+            supportV7      : 'com.android.support:appcompat-v7:27.1.1',//implementation
+            recyclerview   : 'com.android.support:recyclerview-v7:27.1.1',//implementation
+            kotlinJDK7     : 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.50',//implementation
+            design         : 'com.android.support:design:27.1.1',//implementation
+            constraint     : 'com.android.support.constraint:constraint-layout:1.1.2',
+
+            junit          : 'junit:junit:4.12',//testImplementation
+            testRunner     : 'com.android.support.test:runner:1.0.2',//androidTestImplementation
+            espresso       : 'com.android.support.test.espresso:espresso-core:3.0.2',//androidTestImplementation
+
+            bmob           : 'cn.bmob.android:bmob-sdk:3.6.3',//implementation,需要先在根目录build.gradle下添加bmob
+            leancloud      : 'cn.leancloud.android:avoscloud-sdk:v4.7.0',
+
+            //网络请求
+            //nohttp 混淆：-keepclassmembers class ** {private javax.net.ssl.SSLSocketFactory delegate;}*
+            okhttp         : 'com.yanzhenjie.nohttp:okhttp:1.1.11',
+            nohttp         : 'com.yanzhenjie.nohttp:nohttp:1.1.11',
+
+            //kalle 混淆 -dontwarn com.yanzhenjie.kalle
+            kalle          : 'com.yanzhenjie:kalle:0.1.3',
+            okalle         : 'com.yanzhenjie:okalle:0.1.3',
+
+            okhttp3        : 'com.squareup.okhttp3:okhttp:3.11.0',
+            retrofit       : 'com.squareup.retrofit2:retrofit:2.4.0',
+
+            fastjson       : 'com.alibaba:fastjson:1.2.49',
+            fastjsonAndroid: 'com.alibaba:fastjson:1.1.70.android',
+            gson           : 'com.google.code.gson:gson:2.8.2',
+
+            rxjava2        : 'io.reactivex.rxjava2:rxjava:2.2.0',
+            rxandroid      : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+
+            //图片框架
+            glide          : 'com.github.bumptech.glide:glide:4.7.1',//implementation
+            glideCompiler  : 'com.github.bumptech.glide:compiler:4.7.1',//annotationProcessor
+
+            //ios时间选择器
+            pickerView     : 'com.contrarywind:Android-PickerView:4.1.6'
+    ]
+    //添加开源库依赖，在module的build.gradle的android中通过implementation rootProject.ext.expand.xxx添加
+    android = [
+            compileSdkVersion: 27,                      //当前使用sdk版本号
+            buildToolsVersion: '27.1.1',                //使用的buildTools 版本号
+            minSdkVersion    : 15,                      //可以安装最低手机版本号
+            targetSdkVersion : 27,                      //可以安装的最高手机版本号
+            javaVersion8     : JavaVersion.VERSION_1_8,//java版本
+            javaVersion9     : JavaVersion.VERSION_1_9,//java版本
+            javaVersion10    : JavaVersion.VERSION_1_10,//java版本
+    ]
+
+    //个人创建的依赖库，使用同expand
+    expandMe = [
+            BaseUtil       : 'com.gxut.core:baseutil:v1.2.5',
+            NetWork        : 'com.gxut.core:network:v1.1.0',
+            SwipebackLayout: 'com.gxut.ui:swipebacklayout:v1.0',
+            CommonUi       : 'com.gxut.ui:commonui:v1.3.4',
+            FaceDialog     : 'com.gxut.ui:facedialog:v1.0.0',
+            RefreshLayout  : 'com.gxut.ui:refreshlayout:v1.0.1'
+    ]
+}
