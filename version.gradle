@@ -7,6 +7,15 @@ ext {
             gxutCore : "https://dl.bintray.com/gxut/core",//个人核心工具代码仓库
             bmob     : "https://raw.github.com/bmob/bmob-android-sdk/master"//bmob仓库
     ]
+// 项目根目录的build.gradle中，buildscript-》dependencies 下添加:
+    classpaths = [
+            kotlinPlugin: 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.50',
+            gradle      : 'com.android.tools.build:gradle:3.1.4',
+            dcendents   : 'com.github.dcendents:android-maven-gradle-plugin:1.5',
+            bintray     : 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+
+    ]
+
     //在module的build.gradle中通过apply plugin引入
     plugin = [
             kotlin   : 'kotlin-android',//module引入kotlin支持 和 kotlinExt一同使用
