@@ -2,14 +2,18 @@ ext {
     // 项目根目录的build.gradle中，allprojects-》repositories 下添加:
     //maven { url rootProject.ext.repositories.gxutUi }
     repositories = [
-            leancloud: "http://mvn.leancloud.cn/nexus/content/repositories/public",//leancloud 仓库
-            gxutUi   : "https://dl.bintray.com/gxut/ui",//个人UI仓库
-            gxutCore : "https://dl.bintray.com/gxut/core",//个人核心工具代码仓库
-            bmob     : "https://raw.github.com/bmob/bmob-android-sdk/master"//bmob仓库
+            leancloud           : "http://mvn.leancloud.cn/nexus/content/repositories/public",//leancloud 仓库
+            gxutUi              : "https://dl.bintray.com/gxut/ui",//个人UI仓库
+            gxutCore            : "https://dl.bintray.com/gxut/core",//个人核心工具代码仓库
+            BitlikerUi          : "https://dl.bintray.com/bitliker-android/ui",//个人UI库
+            BitlikerCore        : "https://dl.bintray.com/bitliker-android/core",//个人核心库
+            BitlikerController  : "https://dl.bintray.com/bitliker-android/controller",//个人封装库
+            BitGithubRepos      : "https://raw.githubusercontent.com/BitlikerLibs/Libs-Android/master",//个人github封装库
+            bmob                : "https://raw.github.com/bmob/bmob-android-sdk/master"//bmob仓库
     ]
 // 项目根目录的build.gradle中，buildscript-》dependencies 下添加:
     classpaths = [
-            kotlinPlugin: 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.50',
+            kotlinPlugin: 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.61',
             gradle      : 'com.android.tools.build:gradle:3.1.4',
             dcendents   : 'com.github.dcendents:android-maven-gradle-plugin:1.5',
             bintray     : 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
@@ -46,10 +50,10 @@ ext {
             nohttp         : 'com.yanzhenjie.nohttp:nohttp:1.1.11',
 
             //kalle 混淆 -dontwarn com.yanzhenjie.kalle
-            kalle          : 'com.yanzhenjie:kalle:0.1.3',
-            okalle         : 'com.yanzhenjie:okalle:0.1.3',
+            kalle          : 'com.yanzhenjie:kalle:0.1.4',
+            okalle         : 'com.yanzhenjie:okalle:0.1.4',
 
-            okhttp3        : 'com.squareup.okhttp3:okhttp:3.11.0',
+            okhttp3        : 'com.squareup.okhttp3:okhttp:3.12.0',
             retrofit       : 'com.squareup.retrofit2:retrofit:2.4.0',
 
             fastjson       : 'com.alibaba:fastjson:1.2.49',
@@ -60,8 +64,8 @@ ext {
             rxandroid      : 'io.reactivex.rxjava2:rxandroid:2.1.0',
 
             //图片框架
-            glide          : 'com.github.bumptech.glide:glide:4.7.1',//implementation
-            glideCompiler  : 'com.github.bumptech.glide:compiler:4.7.1',//annotationProcessor
+            glide          : 'com.github.bumptech.glide:glide:4.8.0',//implementation
+            glideCompiler  : 'com.github.bumptech.glide:compiler:4.8.0',//annotationProcessor
 
             //ios时间选择器
             pickerView     : 'com.contrarywind:Android-PickerView:4.1.6'
@@ -84,6 +88,27 @@ ext {
             SwipebackLayout: 'com.gxut.ui:swipebacklayout:v1.0',
             CommonUi       : 'com.gxut.ui:commonui:v1.3.4',
             FaceDialog     : 'com.gxut.ui:facedialog:v1.0.0',
+            BitJson        : 'com.bitliker.android.controller:bitjson:v1.1.7',
+            SuperAdapter   : 'com.gxut.ui:superadapter:v0.0.1',
             RefreshLayout  : 'com.gxut.ui:refreshlayout:v1.0.1'
+    ]
+
+    //个人创建的依赖库，使用同expand
+    Bitliker = [
+            BitJson          : 'com.bitliker.android.controller:bitjson:v1.1.7.5',
+            BitUtils         : 'com.bitliker.android.core:bitutils:v1.0.0',
+            BitRecyclerUtils : 'com.bitliker.android.ui:bitrectclerviewutils:v1.0.1',
+            BitRefreshLayout : 'com.bitliker.android.ui:bitrefreshlayout:v1.0.2',
+            BitNetwork       : 'com.bitliker.android.controller:bitnetwork:v3.11.0.1',
+            BitDialog        : 'com.bitliker.android.ui:bitdialog:v1.0.3'
+    ]
+    BitGitHub=[
+            BitJson          : 'com.bitliker.android.controller:BitJson:v1.1.7.6',
+            BitUtils         : 'com.bitliker.android.core:BitUtils:v1.1.0',
+            BitRecyclerUtils : 'com.bitliker.android.ui:BitRectclerViewUtils:v1.0.0',
+            BitRefreshLayout : 'com.bitliker.android.ui:BitRefreshLayout:v1.0.0',
+            BitNetwork       : 'com.bitliker.android.controller:BitNetWork:v3.12.0.1',
+            SuperAdapter     : 'com.bitliker.android.ui:SuperAdapter:v0.0.2',
+            BitDialog        : 'com.bitliker.android.ui:BitDialig:v1.0.5'  
     ]
 }
